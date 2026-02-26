@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivoire Investment Group - Single-Page</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #D4AF37;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        section {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background-color: 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section h1 {
+            font-size: 48px;
+            color: #D4AF37;
+            margin-bottom: 20px; 
+        }
+        
+        .has-watermark {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .has-watermark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('logo-watermark.png');
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 50vw;
+            opacity: 0.1;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .has-watermark > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        #home {
+            min-height: 80vh; 
+            padding-top: 20px;
+            padding-bottom: 40px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home .hero-logo {
+            max-width: 280px;
+            margin-bottom: 15px;
+        }
+
+        #home .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            color: #FFFFFF;
+            max-width: 900px;
+            letter-spacing: 1.5px;
+        }
+
+        #about {
+            background-color: #D4C4A8;
+            color: #1a1a1a;
+            padding: 100px 50px;
+        }
+        .about-container {
+            display: flex;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+            gap: 40px;
+        }
+        .about-content {
+            flex: 3; /* 60% */
+            text-align: left;
+        }
+        .about-heading-wrapper {
+            flex: 2; /* 40% */
+            text-align: right;
+        }
+        
+        .about-content p {
+            max-width: 600px;
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .about-heading-wrapper h1 {
+            font-size: 70px;
+            line-height: 0.9;
+            color: #333;
+            margin: 0;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 500px;
+        }
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .value-item .icon {
+            color: #8B4513;
+        }
+        .value-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+
+        h4.values-heading {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #8B4513;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        #sectors {
+            background-color: #0a0a0a;
+        }
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin-top: 40px;
+        }
+        .sector-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px); /* The glass effect */
+            border: 1px solid rgba(212, 175, 55, 0.2); /* Faint gold border */
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother, bouncier transition */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid rgba(212, 175, 55, 0.8);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.05);
+        }
+
+        .sector-card .icon { color: #D4AF37; margin-bottom: 25px; transition: transform 0.3s ease; }
+        
+        .sector-card:hover .icon { 
+            transform: scale(1.15); 
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.6));
+        }
+        
+        .sector-card h2 { font-size: 20px; text-transform: uppercase; color: #FFFFFF; margin-bottom: 15px; }
+        .sector-card p { font-size: 15px; font-weight: 300; line-height: 1.6; color: #ccc; }
+
+        #presence {
+            background-color: #E5DED1;
+            color: #333;
+            padding: 80px 50px;
+        }
+        .presence-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-w: 1400px;
+            align-items: center;
+        }
+        .presence-content {
+            text-align: left;
+        }
+        .presence-content h1 {
+            color: #D4AF37;
+        }
+        .presence-subheading {
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .location-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .location-item {
+            margin-bottom: 40px;
+        }
+        
+        .location-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .location-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #333;
+            margin: 0;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .location-item p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+        .presence-map img {
+            width: 100%;
+            opacity: 0.9;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        #contact {
+            background-color: #000000;
+            padding-bottom: 100px;
+        }
+        .contact-intro {
+            font-weight: 300;
+            max-width: 550px;
+            margin: 20px auto 40px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        .email-button {
+            display: inline-block;
+            background-color: #D4AF37;
+            color: #000000;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .email-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        .footer { padding-top: 50px; text-align: center; font-size: 14px; }
+
+        @media (max-width: 1200px) {
+            .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 992px) {
+           .presence-container { grid-template-columns: 1fr; }
+            .about-container {
+                flex-direction: column-reverse; /* Reverse the order */
+                text-align: left;
+            }
+            .about-heading-wrapper {
+                width: 100%;
+                text-align: left; /* Align left on mobile */
+                margin-bottom: 40px;
+            }
+            .has-watermark::before {
+                background-position: center center;
+                background-size: 120vw;
+                opacity: 0.08;
+            }
+            .about-heading-wrapper h1 {
+                font-size: 70px; /* Slightly smaller for mobile */
+            }
+            .about-content {
+                width: 100%;
+            }
+            .values-grid {
+               max-width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            #home {
+                min-height: auto;
+                padding-top: 40px;
+                padding-bottom: 40px;
+                justify-content: flex-start;
+                background-attachment: scroll;
+            }
+            #home .hero-logo {
+                margin-bottom: 40px;
+            }
+            #home .tagline {
+                font-size: 32px;
+                max-width: 90%;
+            }
+            .header { padding: 10px 20px; }
+             .logo img {
+                height: 40px; 
+            }
+            .nav { 
+                position: fixed;
+                left: -100%;
+                top: 65px; 
+                flex-direction: column;
+                background-color: #000;
+                width: 100%;
+                height: calc(100vh - 65px);
+                text-align: center;
+                transition: 0.3s;
+                gap: 20px;
+            }
+            .nav.active { 
+                left: 0; 
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav a {
+                margin: 0;
+                font-size: 24px;
+            }
+            .hamburger {
+                display: block;
+                z-index: 1001; 
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            .sectors-grid { grid-template-columns: 1fr; }
+
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="#home"><img src="Ivoire Logo Final.png" alt="Ivoire Investment Group Logo"></a>
+        </div>
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#sectors">Sectors</a>
+            <a href="#presence">Presence</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <img src="Ivoire Logo Final.png" alt="Ivoire Investment Group Logo" class="hero-logo">
+            <h1 class="tagline">Driven by Innovation, Integrity & Partnerships</h1>
+        </section>
+
+        <section id="about" class="has-watermark">
+            <div class="about-container">
+                <div class="about-content">
+                    <p>We are a diversified investment and services group operating across multiple industries, driven by innovation, integrity, and partnerships. Our mission is to lead and innovate across industries, delivering exceptional services and solutions.</p>
+                    <h4 class="values-heading">Our Core Values</h4>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="icon"><i data-lucide="award"></i></div>
+                            <h3>Quality</h3>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon"><i data-lucide="shield-check"></i></div>
+                            <h3>Integrity</h3>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon"><i data-lucide="trending-up"></i></div>
+                            <h3>Growth</h3>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon"><i data-lucide="handshake"></i></div>
+                            <h3>Partnerships</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-heading-wrapper">
+                    <h1>About<br>Us</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="sectors">
+            <h1>Sectors of Impact</h1>
+            <div class="sectors-grid">
+                <div class="sector-card">
+                    <div class="icon"><i data-lucide="building"></i></div>
+                    <h2>Construction</h2>
+                    <p>Bespoke residential developments and premium renovations.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="icon"><i data-lucide="gem"></i></div>
+                    <h2>Mining Solutions</h2>
+                    <p>Operational support and supply chain safety for the regional extractive industry.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="icon"><i data-lucide="beef"></i></div>
+                    <h2>Livestock Farming</h2>
+                    <p>Sustainable livestock farming and food security initiatives.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="icon"><i data-lucide="truck"></i></div>
+                    <h2>Transport & Logistics</h2>
+                    <p>Efficient and reliable fleet management with secure distribution networks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="presence">
+            <div class="presence-container">
+                <div class="presence-content">
+                    <h1>Regional Presence</h1>
+                    <p class="presence-subheading">Strategic operational footprint across Southern Africa, driving cross-border economic growth.</p>
+                    <ul class="location-list">
+                        <li class="location-item">
+                            <h3>Zambia</h3>
+                            <p>Our Zambian operations focus on mining solutions and logistics.</p>
+                        </li>
+                        <li class="location-item">
+                            <h3>Botswana</h3>
+                            <p>In Botswana, we are primarily involved in livestock farming and sustainable agriculture.</p>
+                        </li>
+                        <li class="location-item">
+                            <h3>Zimbabwe</h3>
+                            <p>Our Zimbabwean presence is centered on construction and infrastructure development.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="presence-map">
+                    <img src="africa-map-2.png" alt="Map of Africa">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="has-watermark">
+            <h1>Contact Us</h1>
+            <p class="contact-intro">For investment opportunities, partnership inquiries, and operational details, please reach out to our executive team directly.</p>
+            <a href="mailto:contact@ivoireinvestmentgroup.com?subject=Investment%20Inquiry%20-%20Ivoire%20Group" class="email-button">Email Our Team</a>
+            <div class="footer">
+                <p>&copy; 2023 Ivoire Investment Group. All Rights Reserved.</p>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+      lucide.createIcons();
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav");
+
+      hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+      })
+
+      document.querySelectorAll(".nav a").forEach(n => n.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+      }))
+    </script>
+
+<script>
+// Simple Scroll Reveal script
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+// Apply hidden styles via JS so it doesn't break if JS is disabled
+document.querySelectorAll('section > div, section > h1, section > p, .value-item, .values-heading').forEach((el) => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.8s ease-out';
+    observer.observe(el);
+});
+</script>
+</body>
+</html>
