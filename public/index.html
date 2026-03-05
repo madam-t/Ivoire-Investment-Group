@@ -77,7 +77,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            transition: background-color: 0.8s ease;
             position: relative;
             overflow: hidden;
         }
@@ -120,7 +119,7 @@
             padding-top: 20px;
             padding-bottom: 40px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+                        url('Nam CBD.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -143,6 +142,26 @@
             letter-spacing: 1.5px;
         }
 
+        #home .hero-industries {
+            margin-top: 25px;
+            white-space: nowrap;
+        }
+
+        .hero-industries small {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            opacity: 0.9;
+        }
+
+        .hero-industries .separator {
+            color: #D4AF37;
+            margin: 0 12px;
+            font-weight: 100;
+        }
+
         #about {
             background-color: #D4C4A8;
             color: #1a1a1a;
@@ -157,11 +176,11 @@
         }
         .about-content {
             flex: 3; /* 60% */
-            text-align: left;
+            text-align: right;
         }
         .about-heading-wrapper {
             flex: 2; /* 40% */
-            text-align: right;
+            text-align: left;
         }
         
         .about-content p {
@@ -169,7 +188,7 @@
             font-size: 16px;
             line-height: 1.8;
             font-weight: 300;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
         .about-heading-wrapper h1 {
             font-size: 70px;
@@ -177,74 +196,59 @@
             color: #333;
             margin: 0;
         }
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 500px;
-        }
-        .value-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .value-item .icon {
-            color: #8B4513;
-        }
-        .value-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            color: #333;
-            margin: 0;
-        }
-
-        h4.values-heading {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: #8B4513;
-            margin-bottom: 25px;
-            text-align: left;
-        }
 
         #sectors {
             background-color: #0a0a0a;
         }
-        .sectors-grid {
+        
+        .sectors-grid-6 {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             max-width: 1400px;
             margin-top: 40px;
         }
-        .sector-card {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(10px); /* The glass effect */
-            border: 1px solid rgba(212, 175, 55, 0.2); /* Faint gold border */
+
+        .sector-card-6 {
+            background: #1a1a1a;
             border-radius: 12px;
-            padding: 40px 30px;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother, bouncier transition */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 30px;
         }
 
-        .sector-card:hover {
-            transform: translateY(-10px);
-            border: 1px solid rgba(212, 175, 55, 0.8);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.05);
+        .sector-card-6 img {
+            max-height: 80px;
+            width: auto;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
         }
 
-        .sector-card .icon { color: #D4AF37; margin-bottom: 25px; transition: transform 0.3s ease; }
-        
-        .sector-card:hover .icon { 
-            transform: scale(1.15); 
-            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.6));
+        .sector-card-6:hover img {
+            transform: scale(1.05);
         }
-        
-        .sector-card h2 { font-size: 20px; text-transform: uppercase; color: #FFFFFF; margin-bottom: 15px; }
-        .sector-card p { font-size: 15px; font-weight: 300; line-height: 1.6; color: #ccc; }
+
+        .sector-card-6 .card-content {
+            padding: 25px;
+            padding-top: 0;
+        }
+
+        .sector-card-6 h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+
+        .sector-card-6 p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #ccc;
+        }
 
         #presence {
             background-color: #E5DED1;
@@ -275,30 +279,21 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 40px;
+            width: 100%;
+            max-width: 500px;
         }
-        .location-item {
-            margin-bottom: 40px;
-        }
-        
-        .location-item:last-child {
-            margin-bottom: 0;
-        }
-
         .location-item h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 24px;
             text-transform: uppercase;
             color: #333;
             margin: 0;
             letter-spacing: 1.5px;
-            margin-bottom: 8px;
-        }
-        .location-item p {
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 10px;
         }
         .presence-map img {
             width: 100%;
@@ -334,18 +329,19 @@
         }
         .footer { padding-top: 50px; text-align: center; font-size: 14px; }
 
+
         @media (max-width: 1200px) {
-            .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+            .sectors-grid-6 { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 992px) {
            .presence-container { grid-template-columns: 1fr; }
             .about-container {
-                flex-direction: column-reverse; /* Reverse the order */
+                flex-direction: column;
                 text-align: left;
             }
             .about-heading-wrapper {
                 width: 100%;
-                text-align: left; /* Align left on mobile */
+                text-align: left;
                 margin-bottom: 40px;
             }
             .has-watermark::before {
@@ -354,13 +350,11 @@
                 opacity: 0.08;
             }
             .about-heading-wrapper h1 {
-                font-size: 70px; /* Slightly smaller for mobile */
+                font-size: 70px;
             }
             .about-content {
                 width: 100%;
-            }
-            .values-grid {
-               max-width: 100%;
+                text-align: left;
             }
         }
         @media (max-width: 768px) {
@@ -378,6 +372,19 @@
             #home .tagline {
                 font-size: 32px;
                 max-width: 90%;
+            }
+            #home .hero-industries {
+                margin-top: 20px;
+                padding: 0 15px;
+                white-space: normal;
+            }
+            .hero-industries small {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+                line-height: 1.8;
+            }
+            .hero-industries .separator {
+                margin: 0 8px;
             }
             .header { padding: 10px 20px; }
              .logo img {
@@ -413,7 +420,7 @@
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            .sectors-grid { grid-template-columns: 1fr; }
+            .sectors-grid-6 { grid-template-columns: 1fr; }
 
         }
     </style>
@@ -441,61 +448,74 @@
     <main>
         <section id="home">
             <img src="Ivoire Logo Final.png" alt="Ivoire Investment Group Logo" class="hero-logo">
-            <h1 class="tagline">Driven by Innovation, Integrity & Partnerships</h1>
+            <h1 class="tagline">Building today, investing in tomorrow</h1>
+            <div class="hero-industries">
+                <small>
+                    Business Consulting <span class="separator">|</span> 
+                    MRO Solutions <span class="separator">|</span> 
+                    Livestock Management <span class="separator">|</span> 
+                    Distribution <span class="separator">|</span> 
+                    Construction <span class="separator">|</span> 
+                    Hospitality
+                </small>
+            </div>
         </section>
 
         <section id="about" class="has-watermark">
             <div class="about-container">
-                <div class="about-content">
-                    <p>We are a diversified investment and services group operating across multiple industries, driven by innovation, integrity, and partnerships. Our mission is to lead and innovate across industries, delivering exceptional services and solutions.</p>
-                    <h4 class="values-heading">Our Core Values</h4>
-                    <div class="values-grid">
-                        <div class="value-item">
-                            <div class="icon"><i data-lucide="award"></i></div>
-                            <h3>Quality</h3>
-                        </div>
-                        <div class="value-item">
-                            <div class="icon"><i data-lucide="shield-check"></i></div>
-                            <h3>Integrity</h3>
-                        </div>
-                        <div class="value-item">
-                            <div class="icon"><i data-lucide="trending-up"></i></div>
-                            <h3>Growth</h3>
-                        </div>
-                        <div class="value-item">
-                            <div class="icon"><i data-lucide="handshake"></i></div>
-                            <h3>Partnerships</h3>
-                        </div>
-                    </div>
-                </div>
                 <div class="about-heading-wrapper">
                     <h1>About<br>Us</h1>
+                </div>
+                <div class="about-content">
+                    <p>At Ivoire Investment Group, we don’t just invest in businesses; we ignite them. As a diversified investment and services group, we operate at the precise intersection of capital and capability. Our reach spans multiple industries, granting us a unique, panoramic view of the global market and the agility to transform raw potential into elite performance. By leveraging our deep, multi-industry expertise, we provide more than just a financial foundation. We provide the strategic momentum required to lead. Driven by a relentless spirit of innovation and grounded in unwavering integrity. We aren't just shareholders. We are the partners dedicated to building the benchmarks of tomorrow.</p>
                 </div>
             </div>
         </section>
 
         <section id="sectors">
             <h1>Sectors of Impact</h1>
-            <div class="sectors-grid">
-                <div class="sector-card">
-                    <div class="icon"><i data-lucide="building"></i></div>
-                    <h2>Construction</h2>
-                    <p>Bespoke residential developments and premium renovations.</p>
+            <div class="sectors-grid-6">
+                <div class="sector-card-6">
+                    <img src="Business Consulting.png" alt="Business Consulting">
+                    <div class="card-content">
+                        <h2>Business Consulting</h2>
+                        <p>Strategic guidance and operational support for businesses.</p>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="icon"><i data-lucide="gem"></i></div>
-                    <h2>Mining Solutions</h2>
-                    <p>Operational support and supply chain safety for the regional extractive industry.</p>
+                <div class="sector-card-6">
+                    <img src="MRO Solutions.png" alt="MRO Solutions">
+                    <div class="card-content">
+                        <h2>MRO Solutions</h2>
+                        <p>Comprehensive Maintenance, Repairs and Operations solutions for mining, aviation and oil rigs.</p>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="icon"><i data-lucide="beef"></i></div>
-                    <h2>Livestock Farming</h2>
-                    <p>Sustainable livestock farming and food security initiatives.</p>
+                <div class="sector-card-6">
+                    <img src="Livestock Farming.png" alt="Livestock Management">
+                    <div class="card-content">
+                        <h2>Livestock Management</h2>
+                        <p>Sustainable livestock farming and food security initiatives.</p>
+                    </div>
                 </div>
-                <div class="sector-card">
-                    <div class="icon"><i data-lucide="truck"></i></div>
-                    <h2>Transport & Logistics</h2>
-                    <p>Efficient and reliable fleet management with secure distribution networks.</p>
+                <div class="sector-card-6">
+                    <img src="Distribution.png" alt="Distribution">
+                    <div class="card-content">
+                        <h2>Distribution</h2>
+                        <p>Efficient and reliable fleet management and distribution.</p>
+                    </div>
+                </div>
+                <div class="sector-card-6">
+                    <img src="Construction.png" alt="Construction">
+                    <div class="card-content">
+                        <h2>Construction</h2>
+                        <p>Bespoke residential developments, premium renovations, and expert swimming pool construction for both residential and commercial estates.</p>
+                    </div>
+                </div>
+                <div class="sector-card-6">
+                    <img src="Hospitality.png" alt="Hospitality">
+                    <div class="card-content">
+                        <h2>Hospitality</h2>
+                        <p>Creating exceptional experiences in the hospitality sector.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -506,22 +526,14 @@
                     <h1>Regional Presence</h1>
                     <p class="presence-subheading">Strategic operational footprint across Southern Africa, driving cross-border economic growth.</p>
                     <ul class="location-list">
-                        <li class="location-item">
-                            <h3>Zambia</h3>
-                            <p>Our Zambian operations focus on mining solutions and logistics.</p>
-                        </li>
-                        <li class="location-item">
-                            <h3>Botswana</h3>
-                            <p>In Botswana, we are primarily involved in livestock farming and sustainable agriculture.</p>
-                        </li>
-                        <li class="location-item">
-                            <h3>Zimbabwe</h3>
-                            <p>Our Zimbabwean presence is centered on construction and infrastructure development.</p>
-                        </li>
+                        <li class="location-item"><h3>Zambia</h3></li>
+                        <li class="location-item"><h3>Botswana</h3></li>
+                        <li class="location-item"><h3>Zimbabwe</h3></li>
+                        <li class="location-item"><h3>Namibia</h3></li>
                     </ul>
                 </div>
                 <div class="presence-map">
-                    <img src="africa-map-2.png" alt="Map of Africa">
+                    <img src="African Map Final.png" alt="Map of Africa">
                 </div>
             </div>
         </section>
@@ -552,24 +564,5 @@
       }))
     </script>
 
-<script>
-// Simple Scroll Reveal script
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-});
-
-// Apply hidden styles via JS so it doesn't break if JS is disabled
-document.querySelectorAll('section > div, section > h1, section > p, .value-item, .values-heading').forEach((el) => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.8s ease-out';
-    observer.observe(el);
-});
-</script>
 </body>
 </html>
