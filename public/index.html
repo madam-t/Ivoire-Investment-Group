@@ -330,6 +330,31 @@
         .footer { padding-top: 50px; text-align: center; font-size: 14px; }
 
 
+        /* Scroll Reveal Animations */
+        .revealable {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .revealable.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sectors-grid-6 .revealable:nth-child(1) { transition-delay: 100ms; }
+        .sectors-grid-6 .revealable:nth-child(2) { transition-delay: 200ms; }
+        .sectors-grid-6 .revealable:nth-child(3) { transition-delay: 300ms; }
+        .sectors-grid-6 .revealable:nth-child(4) { transition-delay: 400ms; }
+        .sectors-grid-6 .revealable:nth-child(5) { transition-delay: 500ms; }
+        .sectors-grid-6 .revealable:nth-child(6) { transition-delay: 600ms; }
+        
+        .location-list .revealable:nth-child(1) { transition-delay: 100ms; }
+        .location-list .revealable:nth-child(2) { transition-delay: 200ms; }
+        .location-list .revealable:nth-child(3) { transition-delay: 300ms; }
+        .location-list .revealable:nth-child(4) { transition-delay: 400ms; }
+
+
         @media (max-width: 1200px) {
             .sectors-grid-6 { grid-template-columns: repeat(2, 1fr); }
         }
@@ -463,54 +488,54 @@
 
         <section id="about" class="has-watermark">
             <div class="about-container">
-                <div class="about-heading-wrapper">
+                <div class="about-heading-wrapper revealable">
                     <h1>About<br>Us</h1>
                 </div>
-                <div class="about-content">
+                <div class="about-content revealable">
                     <p>At Ivoire Investment Group, we don’t just invest in businesses; we ignite them. As a diversified investment and services group, we operate at the precise intersection of capital and capability. Our reach spans multiple industries, granting us a unique, panoramic view of the global market and the agility to transform raw potential into elite performance. By leveraging our deep, multi-industry expertise, we provide more than just a financial foundation. We provide the strategic momentum required to lead. Driven by a relentless spirit of innovation and grounded in unwavering integrity. We aren't just shareholders. We are the partners dedicated to building the benchmarks of tomorrow.</p>
                 </div>
             </div>
         </section>
 
         <section id="sectors">
-            <h1>Sectors of Impact</h1>
+            <h1 class="revealable">Sectors of Impact</h1>
             <div class="sectors-grid-6">
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="Business Consulting.png" alt="Business Consulting">
                     <div class="card-content">
                         <h2>Business Consulting</h2>
                         <p>Strategic guidance and operational support for businesses.</p>
                     </div>
                 </div>
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="MRO Solutions.png" alt="MRO Solutions">
                     <div class="card-content">
                         <h2>MRO Solutions</h2>
                         <p>Comprehensive Maintenance, Repairs and Operations solutions for mining, aviation and oil rigs.</p>
                     </div>
                 </div>
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="Livestock Farming.png" alt="Livestock Management">
                     <div class="card-content">
                         <h2>Livestock Management</h2>
                         <p>Sustainable livestock farming and food security initiatives.</p>
                     </div>
                 </div>
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="Distribution.png" alt="Distribution">
                     <div class="card-content">
                         <h2>Distribution</h2>
                         <p>Efficient and reliable fleet management and distribution.</p>
                     </div>
                 </div>
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="Construction.png" alt="Construction">
                     <div class="card-content">
                         <h2>Construction</h2>
                         <p>Bespoke residential developments, premium renovations, and expert swimming pool construction for both residential and commercial estates.</p>
                     </div>
                 </div>
-                <div class="sector-card-6">
+                <div class="sector-card-6 revealable">
                     <img src="Hospitality.png" alt="Hospitality">
                     <div class="card-content">
                         <h2>Hospitality</h2>
@@ -523,25 +548,25 @@
         <section id="presence">
             <div class="presence-container">
                 <div class="presence-content">
-                    <h1>Regional Presence</h1>
-                    <p class="presence-subheading">Strategic operational footprint across Southern Africa, driving cross-border economic growth.</p>
+                    <h1 class="revealable">Regional Presence</h1>
+                    <p class="presence-subheading revealable">Strategic operational footprint across Southern Africa, driving cross-border economic growth.</p>
                     <ul class="location-list">
-                        <li class="location-item"><h3>Zambia</h3></li>
-                        <li class="location-item"><h3>Botswana</h3></li>
-                        <li class="location-item"><h3>Zimbabwe</h3></li>
-                        <li class="location-item"><h3>Namibia</h3></li>
+                        <li class="location-item revealable"><h3>Zambia</h3></li>
+                        <li class="location-item revealable"><h3>Botswana</h3></li>
+                        <li class="location-item revealable"><h3>Zimbabwe</h3></li>
+                        <li class="location-item revealable"><h3>Namibia</h3></li>
                     </ul>
                 </div>
-                <div class="presence-map">
+                <div class="presence-map revealable">
                     <img src="African Map Final.png" alt="Map of Africa">
                 </div>
             </div>
         </section>
 
         <section id="contact" class="has-watermark">
-            <h1>Contact Us</h1>
-            <p class="contact-intro">For investment opportunities, partnership inquiries, and operational details, please reach out to our executive team directly.</p>
-            <a href="mailto:contact@ivoireinvestmentgroup.com?subject=Investment%20Inquiry%20-%20Ivoire%20Group" class="email-button">Email Our Team</a>
+            <h1 class="revealable">Contact Us</h1>
+            <p class="contact-intro revealable">For investment opportunities, partnership inquiries, and operational details, please reach out to our executive team directly.</p>
+            <a href="mailto:contact@ivoireinvestmentgroup.com?subject=Investment%20Inquiry%20-%20Ivoire%20Group" class="email-button revealable">Email Our Team</a>
             <div class="footer">
                 <p>&copy; 2023 Ivoire Investment Group. All Rights Reserved.</p>
             </div>
@@ -562,6 +587,22 @@
           hamburger.classList.remove("active");
           navMenu.classList.remove("active");
       }))
+
+      const revealables = document.querySelectorAll('.revealable');
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, {
+          rootMargin: '0px 0px -15% 0px' 
+      });
+
+      revealables.forEach(el => {
+          observer.observe(el);
+      });
     </script>
 
 </body>
